@@ -14,7 +14,7 @@
             --text-color: #e2e8f0;
             --text-muted: #94a3b8;
             --primary-neon: #00f2fe;
-            --secondary-neon: #4facfe;
+            --secondary-neon: #ea4ffe;
             --accent: #7f00ff;
             --font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
@@ -122,12 +122,32 @@
 
         /* --- HERO / PORTADA --- */
         .hero {
+            position: relative;
             min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 2rem 5%;
             gap: 2rem;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.842);
+            z-index: 1;
+        }
+
+        .hero-content,
+        .hero-image-container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content {
@@ -138,9 +158,15 @@
             font-size: 3.8rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            margin-top: -100px;
+            color: var(--text-color);
+        }
+
+        .hero-content h1 strong {
             background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .hero-content p {
@@ -181,12 +207,12 @@
             width: 260px;
             height: 260px;
 
-            border-radius: 50%;
+            border-radius: 75%;
 
             background: radial-gradient(
                 circle,
                 var(--primary-neon) 0%,
-                transparent 75%
+                transparent 99%
             );
 
             box-shadow: 0 0 65px rgba(0, 242, 254, 0.6);
@@ -206,7 +232,7 @@
 
             transform: translateX(-50%);
 
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.9);
 
             border-radius: 50%;
 
@@ -327,8 +353,34 @@
             width: 100%;
             max-width: 450px;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(127, 0, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 0 20px rgba(0, 242, 254, 0.4),
+                0 0 40px rgba(0, 242, 254, 0.3),
+                0 0 60px rgba(234, 79, 255, 0.2),
+                0 0 80px rgba(127, 0, 255, 0.15),
+                inset 0 0 20px rgba(0, 242, 254, 0.1);
+            border: 2px solid rgba(0, 242, 254, 0.3);
+            animation: glow-effect 3s ease-in-out infinite;
+            filter: brightness(1.05) contrast(1.1);
+        }
+
+        @keyframes glow-effect {
+            0%, 100% {
+                box-shadow:
+                    0 0 20px rgba(0, 242, 254, 0.4),
+                    0 0 40px rgba(0, 242, 254, 0.3),
+                    0 0 60px rgba(234, 79, 255, 0.2),
+                    0 0 80px rgba(127, 0, 255, 0.15),
+                    inset 0 0 20px rgba(0, 242, 254, 0.1);
+            }
+            50% {
+                box-shadow:
+                    0 0 30px rgba(0, 242, 254, 0.6),
+                    0 0 50px rgba(0, 242, 254, 0.5),
+                    0 0 80px rgba(234, 79, 255, 0.4),
+                    0 0 100px rgba(127, 0, 255, 0.25),
+                    inset 0 0 25px rgba(0, 242, 254, 0.2);
+            }
         }
 
         /* --- Aplicaciones (CARDS GRID) --- */
@@ -646,7 +698,7 @@
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>Inteligencia Artificial</h1>
+            <h1>Inteligencia Artificial: <strong>Una Revolución en la Tecnología</strong></h1>
             <p>Explorando los sistemas capaces de emular el razonamiento humano. Una inmersión profunda en los algoritmos de aprendizaje que están redefiniendo el desarrollo tecnológico global.</p>
             <a href="#que-es" class="btn">Comenzar Lectura</a>
         </div>
@@ -755,8 +807,13 @@
     <section id="conclusion" class="conclusion-section">
         <div class="conclusion-box">
             <h2>Conclusión</h2>
-            <p>La Inteligencia Artificial representa uno de los saltos cualitativos más importantes de la historia de la tecnología. Al pasar de sistemas estáticos con reglas fijas a códigos adaptativos capaces de aprender por sí mismos, la humanidad ha abierto las puertas a un abanico infinito de posibilidades que ya facilitan nuestro aprendizaje, comunicación y bienestar.</p>
-            <p>El desafío principal del mañana no radica únicamente en hacer estos modelos más potentes o precisos, sino en asegurar una transición ética. Mitigar los sesgos algorítmicos, proteger la privacidad y legislar para mitigar la pérdida de empleo son tareas urgentes para que los beneficios de la revolución cognitiva alcancen a toda la sociedad de manera justa y equitativa.</p>
+            <p>La Inteligencia Artificial es uno de los avances tecnológicos más significativos de la historia. Ahora, hemos abierto un sinfín de posibilidades en las que la humanidad, 
+            en el entorno de aprendizaje, puede servir a su sistema de enseñanza y aprendizaje adaptativo, y dándose un camino más fácil para mejorar casi todo: desde nuestro acceso a la 
+            educación, la comunicación entre nosotros, e incluso nuestro bienestar integral, pasando de sistemas estáticos con reglas inalterables a códigos de autoaprendizaje.</p>
+            
+            <p>La mayor preocupación de mañana ya no se trata de hacer estos modelos más potentes o precisos, sino de facilitar una transición ética. Se requiere atención urgente ahora 
+                para mitigar el sesgo algorítmico, proteger la privacidad y legislar para una reducción responsable de la pérdida de empleos que, en conjunto, garanticen que los beneficios 
+                socioeconómicos de la revolución cognitiva se compartan equitativamente por todos los ciudadanos dentro de la sociedad.</p>
         </div>
 
         <div class="sources-box">
@@ -773,6 +830,5 @@
         <p>&copy; 2026 Proyecto sobre Inteligencia Artificial. Todos los derechos reservados.</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Diseñado por: <strong>Sergio Bielsa</strong> y <strong>Lizer Ruiz</strong>.</p>
     </footer>
-
 </body>
 </html>
