@@ -1328,7 +1328,7 @@
                 clase = 'failure';
             }
 
-            if (errores.length > 0) {
+            if (respondidas === total && errores.length > 0) {
                 detalleErrores = '<div class="errores-container"><h4 style="color: var(--secondary-neon); margin-bottom: 1.5rem;">Respuestas Incorrectas:</h4>';
                 errores.forEach(error => {
                     const opcionSeleccionada = error.opciones.find(o => o.valor === error.tuRespuesta)?.texto || error.tuRespuesta;
